@@ -14,22 +14,26 @@ const initialState: ProductState = {
 };
 
 export const fetchProduct = createAsyncThunk("fetchProduct", async () => {
-  const response = await axios.get<Product>("http://localhost:8080/api/tutorials");
+  // const response = await axios.get<Product>("http://localhost:999/api/tutorials");
+  const response = await axios.get<Product>("http://test.apithon.com.tr/api/tutorials");
   return response.data;
 });
 
 export const productDelete = createAsyncThunk('productDelete', async (id:any) => {
-  const res = await axios.delete<Product>(`http://localhost:8080/api/tutorials/${id}`);
+  // const res = await axios.delete<Product>(`http://localhost:999/api/tutorials/${id}`);
+  const res = await axios.delete<Product>(`http://test.apithon.com.tr/api/tutorials/${id}`);
   return res.data;
 });
 
 export const productCreate = createAsyncThunk('productCreate', async (data:any) => {
-  const res = await axios.post<Product>(`http://localhost:8080/api/tutorials/`, data);
+  // const res = await axios.post<Product>(`http://localhost:999/api/tutorials/`, data);
+  const res = await axios.post<Product>(`http://test.apithon.com.tr/api/tutorials/`, data);
   return res.data;
 });
 
 export const productUpdate = createAsyncThunk('productUpdate', async (data:any) => {
-  const res = await axios.put<Product>(`http://localhost:8080/api/tutorials/${data.id}`,data);
+  // const res = await axios.put<Product>(`http://localhost:999/api/tutorials/${data.id}`,data);
+  const res = await axios.put<Product>(`http://test.apithon.com.tr/api/tutorials/${data.id}`,data);
   return res.data;
 });
 
